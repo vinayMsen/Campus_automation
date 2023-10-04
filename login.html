@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<meta charset="UTF-8">
+<title>Login</title> 
+<script language="javascript"> 
+function formValidator() 
+{ 
+var username=document.getElementById('userid'); 
+var password=document.getElementById('pwd'); 
+if(isEmpty(username)&&isEmpty(password)) 
+{ 
+alert("enter something"); 
+document.form1.userid.focus(); 
+} 
+if(!isEmpty(username)&&isEmpty(password)&&isAlphabet(username)) 
+{ 
+alert("Please enter password"); 
+document.form1.pwd.focus(); 
+} 
+if(!isEmpty(username)&&!isEmpty(password)&&isAlphabet(username)) 
+{ 
+return true; 
+} 
+else 
+{ 
+if(!isEmpty(username)&&!isEmpty(password)&&!isAlphabet(username)) 
+{ 
+alert("Please Enter only alphabets for username"); 
+document.form1.userid.focus(); 
+}
+} 
+return false; 
+} 
+ function isEmpty(elem) 
+{ 
+if(elem.value.length==0) 
+{ 
+return true; 
+} 
+return false; 
+} 
+function isAlphabet(elem) 
+{ 
+var alphaExp=/^[a-z A-Z]+$/; 
+if(elem.value.match(alphaExp)) 
+{ 
+return true; 
+} 
+} 
+</script> 
+<style>
+body{
+background-color: ;
+}
+form{
+
+}
+</style>
+
+
+</head> 
+<body> 
+
+<br><br> 
+<form name="form1" onSubmit="return formValidator()" action=""> 
+<h1 align=center>USER LOGIN</h1> 
+<center> 
+<table border=0 colsSpacing=4> 
+<tr>
+<td>User :</td>
+<td>
+<select name="usertype">
+<option value="administrator">ADMIN</option>
+<option value="employee">employee</option>
+<option value="student">student</option>
+</select>
+</td>
+<tr>
+<tr> 
+<td>UserID :</td> 
+<td><input type=text placeholder="UserID" value="" name="userid"></td>
+</tr> 
+<tr> 
+<td>Password :</td> 
+<td><input type=password placeholder="password" value="" name="pwd"></td> 
+
+</tr> 
+<tr> 
+<td></td>
+<td><input type=submit value="SUBMIT" name="btn1"></td> 
+<td><input type=reset value="CANCEL" name="btn2"></td> 
+<td><button onclick="formValidator()">submit</button></td>
+</tr> 
+<tr> <td><a href="">Forgot password ?</a> <td> </tr>
+
+
+</table> 
+</center> 
+</form> 
+</body> 
+</html> 
